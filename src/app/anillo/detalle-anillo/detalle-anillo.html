@@ -1,0 +1,29 @@
+<div class="barraBusqueda">
+  <div class="acciones">
+    <table>
+      <tr>
+        <td>
+          <button (click)="mostrarBusqueda()" id="buscarAnillo">
+            Buscar Anillo
+          </button>
+        </td>
+
+        <td>
+          <button (click)="mostrarFormulario()" id="crearAnillo">
+            Crear Anillo
+          </button>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
+
+<main>
+  @if (vista === 'busqueda') {
+  <app-busqueda />
+  } @else if (vista === 'formulario') {
+  <app-formulario-anillo />
+  }@else{
+  <h2>Selecciona una opción!</h2>
+  }
+</main>

@@ -1,0 +1,29 @@
+<header class="hero">
+  <div class="overlay">
+    <h1>Los Anillos de Poder</h1>
+    <p>
+      Antes de la Comunidad.  
+      Antes del Anillo Único.  
+      El origen de la oscuridad.
+    </p>
+    <div class="acciones">
+      <button (click)="mostrarRazas()">Explorar Razas</button>
+      <button (click)="mostrarAnillos()">Explorar Anillos</button>
+      <button (click)="mostrarPersonajes()">Explorar personajes</button>
+    </div>
+  </div>
+</header>
+
+<main>
+  @if (vistaActual === 'razas') {
+    <app-detalle-raza />
+  } @else if (vistaActual === 'anillos') {
+    <app-detalle-anillo />
+  } @else if (vistaActual === 'personajes') {
+    <app-detalle-personaje />
+  } @else {
+    <div class="mensaje-inicial">
+      <h2>Selecciona una opción para comenzar</h2>
+    </div>
+  }
+</main>

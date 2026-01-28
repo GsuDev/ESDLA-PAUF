@@ -1,0 +1,34 @@
+<div class="busqueda">
+  <input type="text" pInputText [(ngModel)]="campoBusqueda" placeholder="Buscar raza..." />
+  <p-button label="Buscar Raza" icon="pi pi-search" (onClick)="buscar()" severity="contrast" />
+</div>
+
+<div class="tabla-container">
+  <p-table [value]="razasFiltradas" [tableStyle]="{ 'min-width': '50rem' }" styleClass="p-datatable-striped">
+    <ng-template #header>
+      <tr>
+        <th>Nombre</th>
+        <th>Descripción</th>
+        <th>Longevidad</th>
+        <th>Región Principal</th>
+        <th>Afinidad Mágica</th>
+        <th>Nivel de Corrupción</th>
+      </tr>
+    </ng-template>
+    <ng-template #body let-raza>
+      <tr>
+        <td>{{ raza.nombre }}</td>
+        <td>{{ raza.descripcion }}</td>
+        <td>{{ raza.longevidad }}</td>
+        <td>{{ raza.regionPrincipal }}</td>
+        <td>{{ raza.afinidadMagica }}</td>
+        <td>{{ raza.nivelCorrupcion }}</td>
+      </tr>
+    </ng-template>
+    <ng-template #emptymessage>
+      <tr>
+        <td colspan="6" style="text-align: center;">No se encontraron razas</td>
+      </tr>
+    </ng-template>
+  </p-table>
+</div>

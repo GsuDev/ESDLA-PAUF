@@ -1,0 +1,30 @@
+<div class="busqueda">
+  <input type="text" pInputText [(ngModel)]="campoBusqueda" placeholder="Buscar anillo..." />
+  <p-button label="Buscar Anillo" icon="pi pi-search" (onClick)="buscar()" severity="contrast" />
+</div>
+
+<div class="tabla-container">
+  <p-table [value]="anillosFiltrados" [tableStyle]="{ 'min-width': '50rem' }" styleClass="p-datatable-striped">
+    <ng-template #header>
+      <tr>
+        <th>Nombre</th>
+        <th>Portador</th>
+        <th>Raza</th>
+        <th>Poder</th>
+      </tr>
+    </ng-template>
+    <ng-template #body let-anillo>
+      <tr>
+        <td>{{ anillo.nombre }}</td>
+        <td>{{ anillo.portador }}</td>
+        <td>{{ anillo.raza }}</td>
+        <td>{{ anillo.poder }}</td>
+      </tr>
+    </ng-template>
+    <ng-template #emptymessage>
+      <tr>
+        <td colspan="4" style="text-align: center;">No se encontraron anillos</td>
+      </tr>
+    </ng-template>
+  </p-table>
+</div>

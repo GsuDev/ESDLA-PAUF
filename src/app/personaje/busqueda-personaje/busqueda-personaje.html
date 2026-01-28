@@ -1,0 +1,32 @@
+<div class="busqueda">
+  <input type="text" pInputText [(ngModel)]="campoBusqueda" placeholder="Buscar personaje..." />
+  <p-button label="Buscar Personaje" icon="pi pi-search" (onClick)="buscar()" severity="contrast" />
+</div>
+
+<div class="tabla-container">
+  <p-table [value]="personajesFiltrados" [tableStyle]="{ 'min-width': '50rem' }" styleClass="p-datatable-striped">
+    <ng-template #header>
+      <tr>
+        <th>Nombre</th>
+        <th>Raza</th>
+        <th>Fecha Nacimiento</th>
+        <th>Acciones</th>
+      </tr>
+    </ng-template>
+    <ng-template #body let-item>
+      <tr>
+        <td>{{item.nombre}}</td>
+        <td>{{item.raza}}</td>
+        <td>{{item.fechaNacimiento}}</td>
+        <td>
+          <p-button label="Editar" icon="pi pi-pencil" (onClick)="editar(item.id)" size="small" severity="info" />
+        </td>
+      </tr>
+    </ng-template>
+    <ng-template #emptymessage>
+      <tr>
+        <td colspan="4" style="text-align: center;">No hay personajes disponibles</td>
+      </tr>
+    </ng-template>
+  </p-table>
+</div>

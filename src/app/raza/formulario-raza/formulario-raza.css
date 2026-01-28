@@ -1,0 +1,22 @@
+form {
+  width: 20%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 10px;
+  border: 1px solid white;
+  border-radius: 10px;
+}
+
+div {
+  display: flex;
+  justify-content: space-between;
+}
+
+small {
+  max-inline-size: 30%;
+}
+p-button {
+  margin: 10px;
+}

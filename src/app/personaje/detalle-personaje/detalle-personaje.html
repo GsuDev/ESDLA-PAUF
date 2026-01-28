@@ -1,0 +1,31 @@
+<div class="barraBusqueda">
+  <div class="acciones">
+    <table>
+      <tr>
+        <td>
+          <button (click)="mostrarBusqueda()" id="buscarAnillo">
+            Buscar Personaje
+          </button>
+        </td>
+
+        <td>
+          <button (click)="mostrarFormulario()" id="crearAnillo">
+            Crear Personaje
+          </button>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
+
+<main>
+  @if (vista === 'busqueda') {
+  <app-busqueda-personaje (editEvent)="editarPersonaje($event)"/>
+  } @else if (vista === 'crear') {
+  <app-formulario-personaje />
+  } @else if (vista === 'editar') {
+  <app-formulario-personaje [id]="idEdicion" (editSuccessEvent)="mostrarBusqueda()"/>
+  }@else{
+  <h2>Selecciona una opción!</h2>
+  }
+</main>

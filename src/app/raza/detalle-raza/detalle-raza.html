@@ -1,0 +1,29 @@
+<div class="barraBusqueda">
+  <div class="acciones">
+    <table>
+      <tr>
+        <td>
+          <button (click)="mostrarBusqueda()" id="buscarRaza">
+            Buscar raza
+          </button>
+        </td>
+
+        <td>
+          <button (click)="mostrarFormulario()" id="crearRaza">
+            Crear raza
+          </button>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
+
+<main>
+  @if (vista === 'busqueda') {
+  <app-busqueda-raza />
+  } @else if (vista === 'formulario') {
+  <app-formulario-raza />
+  }@else{
+    <h2>Selecciona una opción!</h2>
+  }
+</main>
