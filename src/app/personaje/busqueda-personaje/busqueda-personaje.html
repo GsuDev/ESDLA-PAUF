@@ -18,8 +18,37 @@
         <td>{{item.nombre}}</td>
         <td>{{item.raza}}</td>
         <td>{{item.fechaNacimiento}}</td>
+      
         <td>
-          <p-button label="Editar" icon="pi pi-pencil" (onClick)="editar(item.id)" size="small" severity="info" />
+          <!-- Botón Editar -->
+          <p-button 
+            icon="pi pi-pencil" 
+            severity="warn" 
+            [rounded]="true"
+            [text]="true"
+            (onClick)="editar(item.id)"
+            pTooltip="Editar">
+          </p-button>
+          
+          <!-- Popup Baja Lógica / Reactivar -->
+          <app-confirmar-popup 
+            #popupBajaLogica
+            [config]="getPopupConfig(item.id, 'bajaLogica')" 
+            (onConfirm)="onPopupConfirm($event, popupBajaLogica)">
+          </app-confirmar-popup>
+          
+          <app-confirmar-popup 
+            #popupReactivar
+            [config]="getPopupConfig(item.id, 'reactivar')" 
+            (onConfirm)="onPopupConfirm($event, popupReactivar)">
+          </app-confirmar-popup>
+          
+          <!-- Popup Baja Física -->
+          <app-confirmar-popup 
+            #popupBajaFisica
+            [config]="getPopupConfig(item.id, 'bajaFisica')" 
+            (onConfirm)="onPopupConfirm($event, popupBajaFisica)">
+          </app-confirmar-popup>
         </td>
       </tr>
     </ng-template>

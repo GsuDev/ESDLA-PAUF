@@ -4,4 +4,5 @@ export interface Personaje {
   raza: string;
   fechaNacimiento: string;
   nivelCorrupcion: number;
+  fechaBaja: string | null;
 }

@@ -1,59 +1,34 @@
-# AnillosDePoder
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.0.4.
+1 Ha creado `ng g c modales/padre` y `ng g c modales/confirmar-popup`
+2 Ha copiado el ejemplo de [PrimeNG](http://primeng.org/confirmpopup#Basic) en el componente confirmar-popup
+3 Ha cambiado en el html la funcion `confirm1()` por `confirm2()`
+4 Llamar en el html del padre al confirm (acordarse de importarlo)
+5 Crear una interfaz `ng g i interfaces/configuracion-popup` y tiene: 
 
-## Development server
-
-To start a local development server, run:
-
-```bash
-ng serve
+```ts
+interface ConfiguracionPopup = {
+  message: string,
+  header?: string,
+  nameButton: string,
+  severity: ButtonSeverity
+}
+```
+6 Le ponemos en el `padre.html` a la llamada al componente:
+```html
+<app-confirmar-popup [config]="parametrosModal">
+```
+7 Componente confirmar-popup.ts:
+```ts
+@Input() config!: ConfiguracionPopup
+```
+8 Componente padre.ts creas un objeto de tipo ConfiguracionPopup para pasarle la data al hijo:
+```ts
+private parametrosModal: ConfiguracionPopup = {
+  message: "Soy el mensaje",
+  header?: "Cabezon",
+  nameButton: "Cerrar",
+  severity: "Danger"
+}
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
 
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.

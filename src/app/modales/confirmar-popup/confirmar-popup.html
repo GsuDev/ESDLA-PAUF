@@ -1,0 +1,13 @@
+<p-toast />
+<p-confirmpopup />
+
+@if (config.showButton) {
+  <p-button 
+    [icon]="config.buttonIcon" 
+    [severity]="config.buttonSeverity" 
+    [rounded]="true"
+    [text]="true"
+    (onClick)="confirm2($event)"
+    [pTooltip]="config.buttonLabel || config.header || ''">
+  </p-button>
+}

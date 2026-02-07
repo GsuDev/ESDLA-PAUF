@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Los Anillos de Poder - Repositorio</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Georgia', serif;
+      background: linear-gradient(135deg, #1a1a1a 0%, #2d1810 100%);
+      color: #d4af37;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow-x: hidden;
+    }
+
+    .container {
+      text-align: center;
+      padding: 3rem;
+      max-width: 800px;
+      background: rgba(0, 0, 0, 0.7);
+      border: 2px solid #d4af37;
+      border-radius: 10px;
+      box-shadow: 0 0 30px rgba(212, 175, 55, 0.3);
+      position: relative;
+    }
+
+    .ring-symbol {
+      font-size: 4rem;
+      margin-bottom: 1rem;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+
+      0%,
+      100% {
+        transform: scale(1);
+        opacity: 1;
+      }
+
+      50% {
+        transform: scale(1.1);
+        opacity: 0.8;
+      }
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+      letter-spacing: 2px;
+    }
+
+    .subtitle {
+      font-style: italic;
+      color: #c9a961;
+      margin-bottom: 2rem;
+      font-size: 1.1rem;
+    }
+
+    .poem {
+      margin: 2rem 0;
+      padding: 1.5rem;
+      background: rgba(212, 175, 55, 0.1);
+      border-left: 3px solid #d4af37;
+      font-style: italic;
+      line-height: 1.8;
+      color: #e8d4a0;
+    }
+
+    .repo-link {
+      display: inline-block;
+      padding: 1rem 2.5rem;
+      background: linear-gradient(135deg, #d4af37 0%, #a88734 100%);
+      color: #1a1a1a;
+      text-decoration: none;
+      font-size: 1.2rem;
+      font-weight: bold;
+      border-radius: 50px;
+      transition: all 0.3s ease;
+      box-shadow: 0 5px 15px rgba(212, 175, 55, 0.4);
+      margin-top: 2rem;
+      letter-spacing: 1px;
+    }
+
+    .repo-link:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(212, 175, 55, 0.6);
+      background: linear-gradient(135deg, #e8c547 0%, #d4af37 100%);
+    }
+
+    .repo-link:active {
+      transform: translateY(-1px);
+    }
+
+    .github-icon {
+      margin-right: 0.5rem;
+      font-size: 1.4rem;
+      vertical-align: middle;
+    }
+
+    .footer {
+      margin-top: 2rem;
+      font-size: 0.9rem;
+      color: #a88734;
+      font-style: italic;
+    }
+
+    .ornament {
+      margin: 1.5rem 0;
+      color: #d4af37;
+      font-size: 1.5rem;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="ring-symbol">💍</div>
+
+    <h1>Los Anillos de Poder</h1>
+
+    <p class="subtitle">Aplicación de Gestión ESDLA</p>
+
+    <div class="ornament">⚔ ✦ ⚔</div>
+
+    <div class="poem">
+      Tres Anillos para los Reyes Elfos bajo el cielo.<br>
+      Siete para los Señores Enanos en casas de piedra.<br>
+      Nueve para los Hombres Mortales condenados a morir.<br>
+      Uno para el Señor Oscuro, sobre el trono oscuro<br>
+      en la Tierra de Mordor donde se extienden las Sombras.
+    </div>
+
+    <div class="ornament">✦ ✦ ✦</div>
+
+    <a href="https://github.com/GsuDev/ESDLA-PAUF" class="repo-link" target="_blank">
+      <span class="github-icon">⚡</span>
+      Explorar el Repositorio
+    </a>
+
+    <p class="footer">
+      "No todos los que deambulan están perdidos"<br>
+      — J.R.R. Tolkien
+    </p>
+  </div>
+</body>
+
+</html>
