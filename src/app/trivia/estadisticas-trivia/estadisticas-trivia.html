@@ -1,0 +1,77 @@
+<p-toast position="top-center" />
+<p-confirmdialog />
+
+<div class="estadisticas-container">
+
+  <div class="header-estadisticas">
+    <p-button icon="pi pi-arrow-left" severity="secondary" [text]="true" (onClick)="volver()" pTooltip="Volver al juego" />
+    <h2>Estadísticas</h2>
+  </div>
+
+  <!-- Tarjetas resumen -->
+  <div class="resumen-grid">
+    <div class="resumen-card">
+      <div class="resumen-numero">{{ totalPartidas }}</div>
+      <div class="resumen-label">Partidas jugadas</div>
+    </div>
+    <div class="resumen-card victorias">
+      <div class="resumen-numero">{{ victorias }}</div>
+      <div class="resumen-label">🏆 Victorias</div>
+    </div>
+    <div class="resumen-card derrotas">
+      <div class="resumen-numero">{{ derrotas }}</div>
+      <div class="resumen-label">💀 Derrotas</div>
+    </div>
+    <div class="resumen-card">
+      <div class="resumen-numero">{{ mediaAciertos }}</div>
+      <div class="resumen-label">Media de aciertos</div>
+    </div>
+  </div>
+
+  <!-- Tabla de historial -->
+  <div class="historial-container">
+    <div class="historial-header">
+      <h3>Historial de partidas</h3>
+      @if (historial.length > 0) {
+        <p-button
+          label="Borrar historial"
+          icon="pi pi-trash"
+          severity="danger"
+          [outlined]="true"
+          size="small"
+          (onClick)="confirmarBorrar($event)" />
+      }
+    </div>
+
+    <p-table [value]="historial" [tableStyle]="{ 'min-width': '30rem' }" styleClass="p-datatable-striped">
+      <ng-template #header>
+        <tr>
+          <th>#</th>
+          <th>Fecha</th>
+          <th>Aciertos</th>
+          <th>Resultado</th>
+        </tr>
+      </ng-template>
+      <ng-template #body let-item let-i="rowIndex">
+        <tr>
+          <td>{{ i + 1 }}</td>
+          <td>{{ item.fecha }}</td>
+          <td>{{ item.aciertos }} / 5</td>
+          <td>
+            @if (item.victoria) {
+              <span class="badge victoria">🏆 Victoria</span>
+            } @else {
+              <span class="badge derrota">💀 Derrota</span>
+            }
+          </td>
+        </tr>
+      </ng-template>
+      <ng-template #emptymessage>
+        <tr>
+          <td colspan="4" style="text-align: center;">Todavía no has jugado ninguna partida</td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </div>
+
+</div>

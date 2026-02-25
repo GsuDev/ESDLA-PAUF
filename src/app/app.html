@@ -10,6 +10,8 @@
       <button (click)="mostrarRazas()">Explorar Razas</button>
       <button (click)="mostrarAnillos()">Explorar Anillos</button>
       <button (click)="mostrarPersonajes()">Explorar personajes</button>
+      <button (click)="mostrarPortadores()" >Explorar Portadores</button>
+      <button (click)="mostrarTrivia()">🧠 Trivia</button>
     </div>
   </div>
 </header>
@@ -21,6 +23,10 @@
     <app-detalle-anillo />
   } @else if (vistaActual === 'personajes') {
     <app-detalle-personaje />
+  } @else if (vistaActual === 'trivia') {
+    <app-jugar-trivia (verEstadisticas)="mostrarEstadisticas()" />
+  } @else if (vistaActual === 'estadisticas') {
+    <app-estadisticas-trivia (volverAlJuego)="mostrarTrivia()" />
   } @else {
     <div class="mensaje-inicial">
       <h2>Selecciona una opción para comenzar</h2>

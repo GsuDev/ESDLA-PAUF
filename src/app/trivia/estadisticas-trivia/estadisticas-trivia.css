@@ -1,0 +1,101 @@
+.estadisticas-container {
+  max-width: 760px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+.header-estadisticas {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 2rem;
+}
+
+.header-estadisticas h2 {
+  font-size: 1.6rem;
+  color: #3a2a0a;
+  margin: 0;
+}
+
+/* Resumen */
+.resumen-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  margin-bottom: 2.5rem;
+}
+
+.resumen-card {
+  border: 2px solid #c9aa71;
+  border-radius: 10px;
+  padding: 1.25rem 1rem;
+  text-align: center;
+  background: #fff;
+}
+
+.resumen-card.victorias {
+  border-color: #2e7d32;
+  background: #f1f8f1;
+}
+
+.resumen-card.derrotas {
+  border-color: #c62828;
+  background: #fff5f5;
+}
+
+.resumen-numero {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #3a2a0a;
+}
+
+.resumen-label {
+  font-size: 0.85rem;
+  color: #666;
+  margin-top: 0.25rem;
+}
+
+/* Historial */
+.historial-container {
+  background: #fff;
+  border: 2px solid #c9aa71;
+  border-radius: 10px;
+  padding: 1.5rem;
+}
+
+.historial-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.historial-header h3 {
+  margin: 0;
+  color: #3a2a0a;
+}
+
+/* Badges */
+.badge {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 12px;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.badge.victoria {
+  background: #e8f5e9;
+  color: #2e7d32;
+}
+
+.badge.derrota {
+  background: #ffebee;
+  color: #c62828;
+}
+
+@media (max-width: 600px) {
+  .resumen-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}

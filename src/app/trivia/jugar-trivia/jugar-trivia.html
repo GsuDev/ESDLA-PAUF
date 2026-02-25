@@ -1,0 +1,88 @@
+<p-toast position="top-center" />
+
+<!-- ── INICIO ── -->
+@if (estado === 'inicio') {
+<div class="trivia-container">
+  <div class="trivia-card inicio-card">
+    <div class="anillo-icon">💍</div>
+    <h2>Trivia del Señor de los Anillos</h2>
+    <p class="subtitulo">Responde correctamente <strong>{{ totalPreguntas }} preguntas</strong> seguidas para ganar.<br>
+      Un solo fallo y la partida termina. ¿Estás listo, portador del anillo?
+    </p>
+    <div class="botones-inicio">
+      <p-button label="Comenzar partida" icon="pi pi-play" severity="contrast" (onClick)="empezarPartida()" />
+      <p-button label="Ver estadísticas" icon="pi pi-chart-bar" severity="secondary" [outlined]="true"
+        (onClick)="irAEstadisticas()" />
+    </div>
+  </div>
+</div>
+}
+
+<!-- ── JUGANDO ── -->
+@if (estado === 'jugando') {
+<div class="trivia-container">
+  <div class="trivia-card">
+
+    <div class="progreso-header">
+      <span class="aciertos-badge">{{ aciertos }} / {{ totalPreguntas }}</span>
+      <p-progressbar [value]="progreso" [showValue]="false" styleClass="progreso-bar" />
+    </div>
+
+    @if (preguntaActual) {
+    <h3 class="pregunta-texto">{{ preguntaActual.pregunta }}</h3>
+
+    <div class="respuestas-grid">
+      @for (respuesta of respuestas; track respuesta.id) {
+      <button class="respuesta-btn" [class.seleccionada]="respuestaSeleccionada === respuesta.id"
+        [disabled]="respondiendo" (click)="responder(respuesta.id)">
+        <span class="respuesta-letra">{{ respuesta.letra }}</span>
+        {{ respuesta.texto }}
+      </button>
+      }
+    </div>
+    } @else {
+    <div class="cargando">
+      <i class="pi pi-spin pi-spinner" style="font-size: 2rem"></i>
+      <p>Cargando pregunta...</p>
+    </div>
+    }
+
+  </div>
+</div>
+}
+
+<!-- ── VICTORIA ── -->
+@if (estado === 'victoria') {
+<div class="trivia-container">
+  <div class="trivia-card resultado-card victoria">
+    <div class="resultado-icon">🏆</div>
+    <h2>¡Victoria!</h2>
+    <p>Has respondido las <strong>{{ totalPreguntas }}</strong> preguntas correctamente.<br>
+      Eres digno de portar el Anillo Único.
+    </p>
+    <div class="botones-inicio">
+      <p-button label="Jugar de nuevo" icon="pi pi-refresh" severity="contrast" (onClick)="volverAJugar()" />
+      <p-button label="Ver estadísticas" icon="pi pi-chart-bar" severity="secondary" [outlined]="true"
+        (onClick)="irAEstadisticas()" />
+    </div>
+  </div>
+</div>
+}
+
+<!-- ── DERROTA ── -->
+@if (estado === 'derrota') {
+<div class="trivia-container">
+  <div class="trivia-card resultado-card derrota">
+    <div class="resultado-icon">💀</div>
+    <h2>Derrotado</h2>
+    <p>Has fallado. Conseguiste <strong>{{ aciertos }}</strong> aciertos antes de caer.<br>
+      El Señor Oscuro ha ganado esta vez.
+    </p>
+    <div class="botones-inicio">
+      <p-button label="Intentar de nuevo" icon="pi pi-refresh" severity="contrast" (onClick)="volverAJugar()" />
+      <p-button label="Ver estadísticas" icon="pi pi-chart-bar" severity="secondary" [outlined]="true"
+        (onClick)="irAEstadisticas()" />
+    </div>
+  </div>
+</div>
+}

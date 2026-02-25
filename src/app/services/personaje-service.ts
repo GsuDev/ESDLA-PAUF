@@ -15,6 +15,7 @@ export class PersonajeService {
   obtenerPersonajes() {
     return this.http.get(`${this.baseUrl}listaPersonajes`);
   }
+
   obtenerPersonaje(id: number) {
     return this.http.get(`${this.baseUrl}obtenerPersonaje/${id}`);
   }
@@ -37,5 +38,32 @@ export class PersonajeService {
 
   reactivar(id: number): Observable<any> {
     return this.http.put(`${this.baseUrl}reactivar/${id}`, {});
+  }
+
+  // ─── Trivia ───────────────────────────────────────────────────────────────
+
+  empezarPartida(): Observable<any> {
+    return this.http.get(`${this.baseUrl}empezarPartida/`);
+  }
+
+  obtenerPregunta(idPregunta: number): Observable<any> {
+    return this.http.get(`${this.baseUrl}obtenerPregunta/${idPregunta}`);
+  }
+
+  /**
+   * Endpoint mejorado: comprueba respuesta Y actualiza la partida en un solo paso.
+   * Devuelve PartidaDTO con numeroCorrectas y finPartida.
+   * - finPartida=true + fechaFin=null → respuesta correcta, sigue jugando
+   * - finPartida=true + fechaFin≠null → fallo, partida terminada
+   * - numeroCorrectas=5 → victoria
+   */
+  comprobarRespuestaMejorada(idPregunta: number, idPartida: number, respuestaUsuario: number): Observable<any> {
+    return this.http.get(`${this.baseUrl}respuestaMejorada/${idPregunta}/${idPartida}`, {
+      params: { respuestaUsuario: respuestaUsuario },
+    });
+  }
+
+  finalizarPartida(idPartida: number): Observable<any> {
+    return this.http.put(`${this.baseUrl}finalizar/${idPartida}/`, {});
   }
 }
