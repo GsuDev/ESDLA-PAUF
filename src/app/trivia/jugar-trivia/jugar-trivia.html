@@ -10,9 +10,10 @@
       Un solo fallo y la partida termina. ¿Estás listo, portador del anillo?
     </p>
     <div class="botones-inicio">
-      <p-button label="Comenzar partida" icon="pi pi-play" severity="contrast" (onClick)="empezarPartida()" />
+      <p-button label="Comenzar partida" icon="pi pi-play" severity="contrast" (click)="empezarPartida()"
+        [disabled]="iniciando" />
       <p-button label="Ver estadísticas" icon="pi pi-chart-bar" severity="secondary" [outlined]="true"
-        (onClick)="irAEstadisticas()" />
+        (click)="irAEstadisticas()" />
     </div>
   </div>
 </div>
